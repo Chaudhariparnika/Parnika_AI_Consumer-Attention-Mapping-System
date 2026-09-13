@@ -1,0 +1,39 @@
+.git
+.gitignore
+
+# Environment/secrets
+.env
+*.env
+**/.env
+**/*.env
+
+# Python
+.venv
+venv
+__pycache__
+*.pyc
+
+# Test/cache
+.pytest_cache
+.mypy_cache
+
+# IDE
+.vscode
+.idea
+
+# Logs
+*.log
+
+# Generated uploads
+backend/uploads/*
+backend/.ultralytics/*
+
+backend/IMPLEMENTATION_SUMMARY.md
+
+
+
+
+
+
+
+

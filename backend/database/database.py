@@ -2,11 +2,13 @@ from sqlalchemy import create_engine, inspect, text
 from sqlalchemy.orm import sessionmaker, declarative_base
 
 # PostgreSQL Configuration
-POSTGRES_USER = "postgres"
-POSTGRES_PASSWORD = "root"
-POSTGRES_HOST = "localhost"
-POSTGRES_PORT = "5432"
-POSTGRES_DB = "customer_mapping"
+import os
+
+POSTGRES_USER = os.getenv("POSTGRES_USER", "postgres")
+POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD", "root")
+POSTGRES_HOST = os.getenv("POSTGRES_HOST", "localhost")
+POSTGRES_PORT = os.getenv("POSTGRES_PORT", "5432")
+POSTGRES_DB = os.getenv("POSTGRES_DB", "customer_mapping")
 
 DATABASE_URL = (
     f"postgresql+psycopg2://{POSTGRES_USER}:{POSTGRES_PASSWORD}"

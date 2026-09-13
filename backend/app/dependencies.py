@@ -98,10 +98,11 @@ def require_analytics_reader(
         model.UserRole.ADMIN,
         model.UserRole.RETAIL_ANALYST,
         model.UserRole.STORE_MANAGER,
+        model.UserRole.MARKETING_ANALYST,
     }:
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
-            detail="Access Denied: Admin, Retail Analyst, or Store Manager role required for analytics.",
+            detail="Access Denied: Admin, Retail Analyst, Store Manager, or Marketing Analyst role required for analytics.",
         )
 
     return current_user

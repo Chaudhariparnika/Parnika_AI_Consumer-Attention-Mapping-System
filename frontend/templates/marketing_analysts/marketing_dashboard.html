@@ -1,118 +1,307 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marketing Analyst Dashboard</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Marketing Analyst Dashboard</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
+
 <body class="min-h-screen bg-slate-950 text-slate-800" style="background: linear-gradient(135deg, #071a3a 0%, #0f2c5c 45%, #1d4ed8 100%);">
-    <div class="min-h-screen p-3 sm:p-5 lg:p-6">
-        <div class="flex min-h-[calc(100vh-1.5rem)] flex-col overflow-hidden rounded-[32px] border border-white/20 bg-white/10 shadow-2xl backdrop-blur-xl lg:flex-row">
-            <aside class="w-full bg-slate-900/90 p-5 text-white lg:w-72 lg:p-6">
-                <div class="rounded-2xl border border-white/10 bg-white/10 p-4 text-center shadow-lg">
-                    <div class="mb-3 flex justify-center">
-                        <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-500/20 text-2xl shadow-inner">📣</div>
+
+<div class="min-h-screen p-3 sm:p-5 lg:p-6">
+    <div class="flex min-h-[calc(100vh-1.5rem)] flex-col overflow-hidden rounded-[32px] border border-white/20 bg-white/10 shadow-2xl backdrop-blur-xl lg:flex-row">
+
+        <!-- Sidebar -->
+        <aside class="w-full bg-slate-900/90 p-5 text-white lg:w-72 lg:p-6">
+            <div class="rounded-2xl border border-white/10 bg-white/10 p-4 text-center shadow-lg">
+                <div class="mb-3 flex justify-center">
+                    <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-500/20 text-2xl shadow-inner">
+                        ✦
                     </div>
-                    <h1 class="text-2xl font-bold tracking-tight">AI Consumer</h1>
-                    <p class="mt-1 text-sm text-slate-300">Marketing Analyst Panel</p>
                 </div>
-                <nav class="mt-6 space-y-2">
-                    <a href="#" class="group flex items-center rounded-2xl px-4 py-3 text-sm font-medium text-slate-200 transition-all duration-300 hover:bg-white/10 hover:text-white">
-                        <span class="mr-3 flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 text-base">📢</span>
-                        Campaign Signals
-                    </a>
-                    <a href="#" class="group flex items-center rounded-2xl px-4 py-3 text-sm font-medium text-slate-200 transition-all duration-300 hover:bg-white/10 hover:text-white">
-                        <span class="mr-3 flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 text-base">🎯</span>
-                        Audience Focus
-                    </a>
-                    <a href="#" class="group flex items-center rounded-2xl px-4 py-3 text-sm font-medium text-slate-200 transition-all duration-300 hover:bg-white/10 hover:text-white">
-                        <span class="mr-3 flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 text-base">📊</span>
-                        Trend Reports
-                    </a>
-                    <a href="/heatmap" class="group flex items-center rounded-2xl px-4 py-3 text-sm font-medium text-slate-200 transition-all duration-300 hover:bg-white/10 hover:text-white">
-                        <span class="mr-3 flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 text-base">&#128293;</span>
-                        Heatmaps
-                    </a>
-                    <button id="logoutBtn" class="mt-4 flex w-full items-center rounded-2xl border border-red-400/20 bg-red-500/10 px-4 py-3 text-left text-sm font-medium text-red-200 transition-all duration-300 hover:bg-red-500/20 hover:text-white">
-                        <span class="mr-3 flex h-9 w-9 items-center justify-center rounded-xl bg-red-500/20 text-base">⎋</span>
-                        Logout
-                    </button>
-                </nav>
-            </aside>
+                <h1 class="text-2xl font-bold tracking-tight">
+                    AI Consumer
+                </h1>
+                <p class="mt-1 text-sm text-slate-300">
+                    Marketing Analyst
+                </p>
+            </div>
 
-            <div class="flex-1 bg-slate-50/70 p-4 sm:p-6 lg:p-8">
-                <header class="mb-6 flex flex-col gap-4 rounded-[24px] border border-white/40 bg-white/80 p-5 shadow-lg backdrop-blur-md sm:flex-row sm:items-center sm:justify-between sm:p-6">
-                    <div>
-                        <p class="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-amber-600">Marketing Analytics</p>
-                        <h2 id="welcomeText" class="text-2xl font-bold text-slate-900 sm:text-3xl">Welcome 👋</h2>
-                        <p class="mt-1 text-sm text-slate-500 sm:text-base">Audience attention and campaign performance signals</p>
-                    </div>
-                    <div id="liveStatus" class="rounded-2xl border border-amber-100 bg-amber-50 px-4 py-2 text-sm font-semibold text-amber-700 animate-pulse">Loading live insights…</div>
-                </header>
+            <nav class="mt-6 space-y-2">
+                <a href="#" class="group flex items-center rounded-2xl px-4 py-3 text-sm font-medium text-slate-200 transition-all duration-300 hover:bg-white/10 hover:text-white">
+                    <span class="mr-3 flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 text-base transition group-hover:bg-blue-500/20">
+                        ◉
+                    </span>
+                    Dashboard
+                </a>
 
-                <section class="mb-6 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
-                    <div class="rounded-[22px] border border-white/50 bg-white/80 p-5 shadow-lg">
-                        <p class="text-sm font-medium text-slate-500">Top Segment</p>
-                        <p id="peakAudience" class="mt-2 text-3xl font-bold text-slate-900">-</p>
-                    </div>
-                    <div class="rounded-[22px] border border-white/50 bg-white/80 p-5 shadow-lg">
-                        <p class="text-sm font-medium text-slate-500">Profit Margin</p>
-                        <p id="engagementLift" class="mt-2 text-3xl font-bold text-slate-900">0%</p>
-                    </div>
-                    <div class="rounded-[22px] border border-white/50 bg-white/80 p-5 shadow-lg">
-                        <p class="text-sm font-medium text-slate-500">Customers</p>
-                        <p id="campaignReach" class="mt-2 text-3xl font-bold text-slate-900">0</p>
-                    </div>
-                    <div class="rounded-[22px] border border-white/50 bg-white/80 p-5 shadow-lg">
-                        <p class="text-sm font-medium text-slate-500">Orders</p>
-                        <p id="conversionTrend" class="mt-2 text-3xl font-bold text-slate-900">-</p>
-                    </div>
-                </section>
+                <a href="/live_insights.html" class="group flex items-center rounded-2xl px-4 py-3 text-sm font-medium text-slate-200 transition-all duration-300 hover:bg-white/10 hover:text-white">
+                    <span class="mr-3 flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 text-base transition group-hover:bg-blue-500/20">
+                        ⚡
+                    </span>
+                    Live Insights
+                </a>
 
-                <section class="mb-6 grid grid-cols-1 gap-6 xl:grid-cols-[1.2fr_0.8fr]">
-                    <div class="rounded-[24px] border border-white/50 bg-white/80 p-5 shadow-lg">
-                        <h3 class="mb-4 text-lg font-semibold text-slate-900">Monthly Sales Trend</h3>
-                        <canvas id="trendChart" height="180"></canvas>
-                    </div>
-                    <div class="rounded-[24px] border border-white/50 bg-white/80 p-5 shadow-lg">
-                        <h3 class="mb-4 text-lg font-semibold text-slate-900">Audience Insights</h3>
-                        <div class="space-y-3">
-                            <div class="rounded-2xl bg-slate-50 p-4">
-                                <p class="text-sm text-slate-500">Best Performing Segment</p>
-                                <p id="bestSegment" class="mt-1 text-xl font-semibold text-slate-900">-</p>
-                            </div>
-                            <div class="rounded-2xl bg-slate-50 p-4">
-                                <p class="text-sm text-slate-500">Recommended Focus</p>
-                                <p id="recommendation" class="mt-1 text-xl font-semibold text-slate-900">-</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                <a href="/admin/retail-intelligence" class="group flex items-center rounded-2xl px-4 py-3 text-sm font-medium text-slate-200 transition-all duration-300 hover:bg-white/10 hover:text-white">
+                    <span class="mr-3 flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 text-base transition group-hover:bg-blue-500/20">
+                        ◈
+                    </span>
+                    Retail Intelligence
+                </a>
 
-                <section>
-                    <div class="overflow-hidden rounded-[24px] border border-white/50 bg-white/80 shadow-lg">
-                        <div class="p-5 sm:p-6">
-                            <h3 class="text-xl font-semibold text-slate-900">Segment Performance</h3>
-                        </div>
-                        <div class="overflow-x-auto">
-                            <table class="min-w-full">
-                                <thead class="bg-slate-100/80 text-left text-sm text-slate-600">
-                                    <tr>
-                                        <th class="p-3 font-semibold">Segment</th>
-                                        <th class="p-3 font-semibold">Customers</th>
-                                        <th class="p-3 font-semibold">Sales</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="campaignTable" class="divide-y divide-slate-100 text-sm text-slate-700"></tbody>
-                            </table>
-                        </div>
+                <a href="/reports" class="group flex items-center rounded-2xl px-4 py-3 text-sm font-medium text-slate-200 transition-all duration-300 hover:bg-white/10 hover:text-white">
+                    <span class="mr-3 flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 text-base transition group-hover:bg-blue-500/20">
+                        🗂️
+                    </span>
+                    Reports
+                </a>
+
+                <button id="logoutBtn" class="mt-4 flex w-full items-center rounded-2xl border border-red-400/20 bg-red-500/10 px-4 py-3 text-left text-sm font-medium text-red-200 transition-all duration-300 hover:bg-red-500/20 hover:text-white">
+                    <span class="mr-3 flex h-9 w-9 items-center justify-center rounded-xl bg-red-500/20 text-base">
+                        ⎋
+                    </span>
+                    Logout
+                </button>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="flex-1 bg-slate-50/70 p-4 sm:p-6 lg:p-8">
+
+            <!-- Header -->
+            <header class="mb-6 flex flex-col gap-4 rounded-[24px] border border-white/40 bg-white/80 p-5 shadow-lg backdrop-blur-md sm:flex-row sm:items-center sm:justify-between sm:p-6">
+                <div>
+                    <p class="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-blue-600">
+                        Analytics
+                    </p>
+                    <h2 class="text-2xl font-bold text-slate-900 sm:text-3xl">
+                        Marketing Dashboard
+                    </h2>
+                    <p class="mt-1 text-sm text-slate-500 sm:text-base">
+                        Customer attention, product engagement, shelf performance and behavioral insights
+                    </p>
+                </div>
+
+                <div class="flex flex-col items-end gap-3 sm:flex-row sm:items-center">
+                    <select id="periodFilter" class="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-900 transition hover:border-blue-300 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500">
+                        <option value="7">Last 7 Days</option>
+                        <option value="14">Last 14 Days</option>
+                        <option value="30">Last 30 Days</option>
+                    </select>
+                    <div id="syncStatus" class="flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700">
+                        <span class="h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
+                        <span>Live</span>
                     </div>
-                </section>
+                </div>
+            </header>
+
+            <!-- KPI Cards -->
+            <section class="mb-8">
+                <h2 class="mb-4 text-lg font-bold text-slate-900">Key Metrics</h2>
+                <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-6">
+                    <div class="rounded-[16px] border border-slate-200 bg-white p-5 shadow-sm transition hover:shadow-md">
+                        <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">Total Customers</p>
+                        <p id="kpi-total-customers" class="mt-3 text-3xl font-bold text-slate-900">-</p>
+                        <p id="kpi-total-customers-change" class="mt-1 text-sm text-slate-500">—</p>
+                    </div>
+                    <div class="rounded-[16px] border border-slate-200 bg-white p-5 shadow-sm transition hover:shadow-md">
+                        <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">Avg Attention</p>
+                        <p id="kpi-avg-attention" class="mt-3 text-3xl font-bold text-slate-900">-</p>
+                        <p id="kpi-avg-attention-unit" class="mt-1 text-sm text-slate-500">—</p>
+                    </div>
+                    <div class="rounded-[16px] border border-slate-200 bg-white p-5 shadow-sm transition hover:shadow-md">
+                        <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">Avg Dwell Time</p>
+                        <p id="kpi-avg-dwell" class="mt-3 text-3xl font-bold text-slate-900">-</p>
+                        <p id="kpi-avg-dwell-unit" class="mt-1 text-sm text-slate-500">seconds</p>
+                    </div>
+                    <div class="rounded-[16px] border border-slate-200 bg-white p-5 shadow-sm transition hover:shadow-md">
+                        <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">Engaged Customers</p>
+                        <p id="kpi-engaged-customers" class="mt-3 text-3xl font-bold text-slate-900">-</p>
+                        <p id="kpi-engaged-customers-pct" class="mt-1 text-sm text-slate-500">% of total</p>
+                    </div>
+                    <div class="rounded-[16px] border border-slate-200 bg-white p-5 shadow-sm transition hover:shadow-md">
+                        <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">High-Interest Events</p>
+                        <p id="kpi-high-interest" class="mt-3 text-3xl font-bold text-slate-900">-</p>
+                        <p id="kpi-high-interest-pct" class="mt-1 text-sm text-slate-500">% of total</p>
+                    </div>
+                    <div class="rounded-[16px] border border-slate-200 bg-white p-5 shadow-sm transition hover:shadow-md">
+                        <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">Shelf Revisit Rate</p>
+                        <p id="kpi-revisit-rate" class="mt-3 text-3xl font-bold text-slate-900">-</p>
+                        <p id="kpi-revisit-rate-pct" class="mt-1 text-sm text-slate-500">% rate</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Attention & Engagement Charts -->
+            <section class="mb-8 grid grid-cols-1 gap-6 lg:grid-cols-2">
+                <div class="rounded-[16px] border border-slate-200 bg-white p-6 shadow-sm">
+                    <h3 class="mb-4 text-lg font-bold text-slate-900">Attention by Shelf/Zone</h3>
+                    <div class="relative h-80">
+                        <canvas id="attentionByShelfChart"></canvas>
+                    </div>
+                    <p id="attentionByShelfEmpty" class="text-center text-sm text-slate-500">No shelf data available</p>
+                </div>
+                <div class="rounded-[16px] border border-slate-200 bg-white p-6 shadow-sm">
+                    <h3 class="mb-4 text-lg font-bold text-slate-900">Dwell Time Distribution</h3>
+                    <div class="relative h-80">
+                        <canvas id="dwellTimeChart"></canvas>
+                    </div>
+                    <p id="dwellTimeEmpty" class="text-center text-sm text-slate-500">No dwell time data available</p>
+                </div>
+            </section>
+
+            <!-- Top 3 Product Attractions -->
+            <section class="mb-8 rounded-[16px] border border-slate-200 bg-white p-6 shadow-sm">
+                <h3 class="mb-6 text-lg font-bold text-slate-900">Top 3 Product Attractions</h3>
+                <div id="topProductsContainer" class="grid grid-cols-1 gap-4 sm:grid-cols-3">
+                    <!-- Populated by JavaScript -->
+                </div>
+                <p id="topProductsEmpty" class="text-center text-sm text-slate-500">No product attraction data available</p>
+            </section>
+
+            <!-- Product Engagement Table -->
+            <section class="mb-8 rounded-[16px] border border-slate-200 bg-white p-6 shadow-sm">
+                <h3 class="mb-6 text-lg font-bold text-slate-900">Product Engagement Table</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr class="border-b border-slate-200">
+                                <th class="px-4 py-3 text-left font-semibold text-slate-900">Product ID/Name</th>
+                                <th class="px-4 py-3 text-left font-semibold text-slate-900">Shelf ID</th>
+                                <th class="px-4 py-3 text-center font-semibold text-slate-900">Engaged Customers</th>
+                                <th class="px-4 py-3 text-center font-semibold text-slate-900">Avg Attention</th>
+                                <th class="px-4 py-3 text-center font-semibold text-slate-900">Avg Dwell (s)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productEngagementTableBody" class="divide-y divide-slate-200">
+                            <!-- Populated by JavaScript -->
+                        </tbody>
+                    </table>
+                    <p id="productEngagementEmpty" class="mt-4 text-center text-sm text-slate-500">No product engagement data available</p>
+                </div>
+            </section>
+
+            <!-- Shelf Performance -->
+            <section class="mb-8 rounded-[16px] border border-slate-200 bg-white p-6 shadow-sm">
+                <h3 class="mb-6 text-lg font-bold text-slate-900">Shelf Performance Ranking</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr class="border-b border-slate-200">
+                                <th class="px-4 py-3 text-left font-semibold text-slate-900">Shelf</th>
+                                <th class="px-4 py-3 text-left font-semibold text-slate-900">Zone</th>
+                                <th class="px-4 py-3 text-center font-semibold text-slate-900">Customers</th>
+                                <th class="px-4 py-3 text-center font-semibold text-slate-900">Avg Dwell (s)</th>
+                                <th class="px-4 py-3 text-center font-semibold text-slate-900">Attention %</th>
+                                <th class="px-4 py-3 text-center font-semibold text-slate-900">High-Interest</th>
+                                <th class="px-4 py-3 text-center font-semibold text-slate-900">Revisit %</th>
+                            </tr>
+                        </thead>
+                        <tbody id="shelfPerformanceTableBody" class="divide-y divide-slate-200">
+                            <!-- Populated by JavaScript -->
+                        </tbody>
+                    </table>
+                    <p id="shelfPerformanceEmpty" class="mt-4 text-center text-sm text-slate-500">No shelf data available</p>
+                </div>
+            </section>
+
+            <!-- Customer Journey Patterns -->
+            <section class="mb-8 rounded-[16px] border border-slate-200 bg-white p-6 shadow-sm">
+                <h3 class="mb-6 text-lg font-bold text-slate-900">Top 5 Customer Journey Paths</h3>
+                <div id="customerJourneyContainer" class="space-y-3">
+                    <!-- Populated by JavaScript -->
+                </div>
+                <p id="customerJourneyEmpty" class="text-center text-sm text-slate-500">No journey path data available</p>
+            </section>
+
+            <!-- Behavioral Signals -->
+            <section class="mb-8 rounded-[16px] border border-slate-200 bg-white p-6 shadow-sm">
+                <h3 class="mb-6 text-lg font-bold text-slate-900">Behavioral Signals Distribution</h3>
+                <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                    <div class="rounded-lg border border-slate-200 bg-slate-50 p-4">
+                        <p class="text-sm font-semibold text-slate-600">Quick Pass</p>
+                        <p id="signal-quick-pass" class="mt-2 text-2xl font-bold text-slate-900">-</p>
+                    </div>
+                    <div class="rounded-lg border border-slate-200 bg-slate-50 p-4">
+                        <p class="text-sm font-semibold text-slate-600">Browsing</p>
+                        <p id="signal-browsing" class="mt-2 text-2xl font-bold text-slate-900">-</p>
+                    </div>
+                    <div class="rounded-lg border border-slate-200 bg-slate-50 p-4">
+                        <p class="text-sm font-semibold text-slate-600">High Interest</p>
+                        <p id="signal-high-interest" class="mt-2 text-2xl font-bold text-slate-900">-</p>
+                    </div>
+                    <div class="rounded-lg border border-slate-200 bg-slate-50 p-4">
+                        <p class="text-sm font-semibold text-slate-600">Shelf Revisit</p>
+                        <p id="signal-revisit" class="mt-2 text-2xl font-bold text-slate-900">-</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Historical Trends -->
+            <section class="mb-8 grid grid-cols-1 gap-6 lg:grid-cols-2">
+                <div class="rounded-[16px] border border-slate-200 bg-white p-6 shadow-sm">
+                    <h3 class="mb-4 text-lg font-bold text-slate-900">Attention Trend</h3>
+                    <div class="relative h-80">
+                        <canvas id="attentionTrendChart"></canvas>
+                    </div>
+                    <p id="attentionTrendEmpty" class="mt-4 text-center text-sm text-slate-500">No trend data available</p>
+                </div>
+                <div class="rounded-[16px] border border-slate-200 bg-white p-6 shadow-sm">
+                    <h3 class="mb-4 text-lg font-bold text-slate-900">Dwell Time Trend</h3>
+                    <div class="relative h-80">
+                        <canvas id="dwellTrendChart"></canvas>
+                    </div>
+                    <p id="dwellTrendEmpty" class="mt-4 text-center text-sm text-slate-500">No trend data available</p>
+                </div>
+            </section>
+
+            <!-- Comparisons & Rankings -->
+            <section class="mb-8 grid grid-cols-1 gap-6 lg:grid-cols-2">
+                <div class="rounded-[16px] border border-slate-200 bg-white p-6 shadow-sm">
+                    <h3 class="mb-4 text-lg font-bold text-slate-900">Top Shelves by Attention</h3>
+                    <div id="topShelvesAttention" class="space-y-2">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                    <p id="topShelvesAttentionEmpty" class="text-center text-sm text-slate-500">No shelf data available</p>
+                </div>
+                <div class="rounded-[16px] border border-slate-200 bg-white p-6 shadow-sm">
+                    <h3 class="mb-4 text-lg font-bold text-slate-900">Top Shelves by Dwell Time</h3>
+                    <div id="topShelvesDwell" class="space-y-2">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                    <p id="topShelvesDwellEmpty" class="text-center text-sm text-slate-500">No shelf data available</p>
+                </div>
+            </section>
+
+            <!-- Marketing Opportunities -->
+            <section class="mb-8 rounded-[16px] border border-slate-200 bg-white p-6 shadow-sm">
+                <h3 class="mb-6 text-lg font-bold text-slate-900">Marketing Opportunities</h3>
+                <div id="marketingOpportunitiesContainer" class="space-y-4">
+                    <!-- Populated by JavaScript -->
+                </div>
+                <p id="marketingOpportunitiesEmpty" class="text-center text-sm text-slate-500">No opportunities identified at this time</p>
+            </section>
+
+            <!-- Loading State -->
+            <div id="loadingOverlay" class="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+                <div class="rounded-xl border border-white/20 bg-white/10 p-8 text-center backdrop-blur-md">
+                    <div class="mb-4 flex justify-center">
+                        <div class="h-12 w-12 animate-spin rounded-full border-4 border-white/20 border-t-blue-500"></div>
+                    </div>
+                    <p class="text-white">Loading marketing analytics...</p>
+                </div>
             </div>
         </div>
     </div>
-    <script src="/static/js/marketing_analysts/marketing_dashboard.js?v=20260731"></script>
+</div>
+
+<script src="/static/js/marketing_analysts/marketing_dashboard.js?v=20260913"></script>
 </body>
+
 </html>
