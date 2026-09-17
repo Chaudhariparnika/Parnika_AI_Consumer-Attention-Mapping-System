@@ -17,7 +17,19 @@ RUN apt-get update && apt-get install -y \
 
 COPY requirements.txt .
 
-RUN pip install --no-cache-dir --default-timeout=300 --retries=10 -r requirements.txt
+# Install CPU-only PyTorch
+RUN pip install --no-cache-dir \
+    torch==2.8.0 \
+    torchvision==0.23.0 \
+    --index-url https://download.pytorch.org/whl/cpu
+
+# Install remaining dependencies
+RUN pip install --no-cache-dir \
+    --disable-pip-version-check \
+    --index-url https://pypi.org/simple \
+    --default-timeout=300 \
+    --retries=10 \
+    -r requirements.txt
 
 COPY backend ./backend
 COPY frontend ./frontend
