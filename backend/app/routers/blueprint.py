@@ -195,8 +195,3 @@ def get_video_trajectory(video_id: str | None = None, db: Session = Depends(get_
             for row in rows
         ],
     }
-
-
-@router.get("/editor")
-def blueprint_editor_page():
-    return {"status": "ok", "page": "/blueprint-editor"}

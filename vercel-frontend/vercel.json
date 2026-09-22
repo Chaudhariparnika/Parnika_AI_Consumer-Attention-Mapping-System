@@ -1,0 +1,68 @@
+{
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/auth/login.html"
+    },
+    {
+      "source": "/login",
+      "destination": "/auth/login.html"
+    },
+    {
+      "source": "/register",
+      "destination": "/auth/register.html"
+    },
+    {
+      "source": "/admin/dashboard",
+      "destination": "/admin/admin_dashboard.html"
+    },
+    {
+      "source": "/store-management",
+      "destination": "/admin/store_management.html"
+    },
+    {
+      "source": "/shelves_management",
+      "destination": "/admin/shelves_management.html"
+    },
+    {
+      "source": "/product-management",
+      "destination": "/admin/product_management.html"
+    },
+    {
+      "source": "/admin/retail-intelligence",
+      "destination": "/admin/Retail_Intelligence.html"
+    },
+    {
+      "source": "/camera_management",
+      "destination": "/admin/camera_management.html"
+    },
+    {
+      "source": "/reports",
+      "destination": "/admin/reports.html"
+    },
+    {
+      "source": "/heatmap",
+      "destination": "/admin/heatmap.html"
+    },
+       {
+      "source": "/live-insights",
+      "destination": "/admin/live_insights.html"
+    },
+    {
+      "source": "/live_insights.html",
+      "destination": "/admin/live_insights.html"
+    },
+    {
+      "source": "/video-upload",
+      "destination": "/admin/video_upload.html"
+    },
+    {
+      "source": "/retail_analytics_dashboard.html",
+      "destination": "/retail_analysts/retail_analysts_dashboard.html"
+    },
+    {
+      "source": "/profile",
+      "destination": "/retail_analysts/retail_analysts_dashboard.html"
+    }
+  ]
+}

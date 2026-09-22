@@ -213,15 +213,6 @@ async def store_management_page(request: Request):
     )
 
 
-@app.get("/user_management.html", response_class=HTMLResponse)
-async def user_management_page(request: Request):
-    return templates.TemplateResponse(
-        request=request,
-        name="admin/user_management.html",
-        context={},
-    )
-
-
 @app.get("/camera_management", response_class=HTMLResponse)
 async def camera_management_page(request: Request):
     return templates.TemplateResponse(
@@ -280,12 +271,7 @@ async def video_upload_legacy_redirect():
     return RedirectResponse(url="/video-upload", status_code=307)
 
 
-@app.get("/blueprint-editor", response_class=HTMLResponse)
-async def blueprint_editor_page(request: Request):
-    return templates.TemplateResponse(
-        "admin/blueprint_editor.html",
-        {"request": request}
-    )
+
 
 
 @app.get("/reports", response_class=HTMLResponse)
